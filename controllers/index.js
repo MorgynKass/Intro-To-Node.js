@@ -1,9 +1,24 @@
-const awesomeFunction = (req, res) => {
-    res.send("Hello world!");
+const mongodb = require("../db/connect");
+const ObjectId = require("mongodb").ObjectId;
+
+const awesomeFunction = (req, res, next) => {
+  res.send("Awesome name!");
 };
 
-const tTech = (req, res) => {
-    res.send("Tooele Tech is awesome!");
+const tTech = (req, res, next) => {
+  res.send("Tooele Tech is awesome!");
 };
 
-module.exports = {awesomeFunction, tTech};
+const getAllStudents = async (req, res) => {
+  try {
+    const result = await mongodb.getDb().db().collection("test").find({});
+    result.toArray().then((lists) => {
+      res.setHeader("Content-Type", "application/json");
+      res.status(200).json(lists);
+    });
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+module.exports = { awesomeFunction, tTech, getAllStudents };
