@@ -1,8 +1,45 @@
 ### get tooele tech route 
 GET http://localhost:3000/ttech HTTP/1.1
 
+
 ### get the root path /
 GET http://localhost:3000 HTTP/1.1
 
-### get students
+
+### get all students
 GET http://localhost:3000/students HTTP/1.1
+
+
+### get one student
+GET http://localhost:3000/students/6539af79ae508e5e1d2ad7aa HTTP/1.1
+
+
+### create a student 
+POST http://localhost:3000/students HTTP/1/1
+Content-Type: application/json
+
+{
+    "firstName": "",
+    "lastName": "",
+    "email": "",
+    "age": ,
+    "currentCollege": ""
+}
+
+
+### update a student
+PATCH  http://localhost:3000/students/654110a2a05619a49f0f8d27 HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "",
+    "lastName": "",
+    "email": "",
+    "age": ,
+    "currentCollege": ""
+}
+
+
+### delete a student
+DELETE http://localhost:3000/students/654110a2a05619a49f0f8d27  HTTP/1.1
+ 
